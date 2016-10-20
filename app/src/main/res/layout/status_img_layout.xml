@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.wulinpeng.weicommunity.login.home.view.custom.ScaleImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"/>
+    
+    <TextView
+        android:id="@+id/img_type"
+        android:layout_width="28dp"
+        android:layout_height="15dp"
+        android:layout_alignRight="@id/img"
+        android:layout_alignBottom="@id/img"
+        android:background="@drawable/status_img_type_bg"
+        android:textColor="@android:color/white"
+        android:text="GIF"
+        android:textSize="10sp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:alpha="0.85"/>
+
+</RelativeLayout>

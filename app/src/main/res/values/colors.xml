@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bottom_bar_topline">#eaeaea</color>
+    <color name="bottom_bar_bg">#ffffff</color>
+    <color name="bottom_bar_text_color">#929292</color>
+    <color name="toolbar_bg">#ffffff</color>
+    <color name="toolbar_text_bg">#545454</color>
+    <color name="toolbar_underline">#e3e3e3</color>
+    <color name="unlogin_bg_text_bg">#909090</color>
+    <color name="unlogin_button_stroke">#cbcbcb</color>
+    <color name="register_origin">#f18312</color>
+    <color name="login_color">#777777</color>
+    <color name="discover_item_pressed">#f2f2f2</color>
+    <color name="gray">#808080</color>
+    <color name="home_group_selected">#e7e7e7</color>
+    <color name="group_empty_text">#bcbcbc</color>
+    <color name="group_item_pressed">#4c4c4c</color>
+    <color name="group_item_selected">#7a7a7a</color>
+    <color name="group_text_presses">#f68008</color>
+    <color name="group_text_selected">#f68008</color>
+    <color name="group_divider_color">#4d4d4d</color>
+    <color name="group_divider_text_color">#323232</color>
+    <color name="status_profile_name">#f46200</color>
+    <color name="status_time">#828282</color>
+    <color name="status_from">#828282</color>
+    <color name="status_bottom_text">#929292</color>
+    <color name="status_text">#333333</color>
+    <color name="status_delete">#929292</color>
+    <color name="retweet_selected">#f0f0f0</color>
+    <color name="retweet_bg">#f7f7f7</color>
+    <color name="img_type_color">#4F94CD</color>
+    <color name="load_toast_bg">#f79f43</color>
+</resources>

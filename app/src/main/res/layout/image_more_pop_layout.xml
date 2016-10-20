@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:padding="12dp"
+        android:text="保存图片"
+        android:gravity="center"
+        android:background="@drawable/image_more_text_bg"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/bottom_bar_topline"/>
+
+    <TextView
+        android:id="@+id/repost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:padding="12dp"
+        android:text="转发微博"
+        android:gravity="center"
+        android:background="@drawable/image_more_text_bg"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/bottom_bar_topline"/>
+
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:padding="12dp"
+        android:text="取消"
+        android:gravity="center"
+        android:background="@drawable/image_more_text_bg"/>
+
+</LinearLayout>

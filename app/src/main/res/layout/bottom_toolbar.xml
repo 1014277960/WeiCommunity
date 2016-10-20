@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_bar"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_gravity="bottom">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bottom_bar_topline"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bottom_bar_bg"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="首页"
+                android:textSize="10sp"
+                android:textColor="@color/bottom_bar_text_color"
+                android:drawableTop="@drawable/bottom_bar_home_bg"/>
+
+            <ImageView
+                android:id="@+id/home_new_dot"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignRight="@id/tv_home"
+                android:layout_alignTop="@id/tv_home"
+                android:src="@drawable/red_dot"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="消息"
+                android:textSize="10sp"
+                android:textColor="@color/bottom_bar_text_color"
+                android:drawableTop="@drawable/bottom_bar_message_bg"/>
+
+            <ImageView
+                android:id="@+id/message_new_dot"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignRight="@id/tv_message"
+                android:layout_alignTop="@id/tv_message"
+                android:src="@drawable/red_dot"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_add"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_bar_add_bg"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="3dp"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/bottom_bar_add"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_discover"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_discover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="发现"
+                android:textSize="10sp"
+                android:textColor="@color/bottom_bar_text_color"
+                android:drawableTop="@drawable/bottom_bar_discover_bg"/>
+
+            <ImageView
+                android:id="@+id/discover_new_dot"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignRight="@id/tv_discover"
+                android:layout_alignTop="@id/tv_discover"
+                android:src="@drawable/red_dot"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_profile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="我"
+                android:textSize="10sp"
+                android:textColor="@color/bottom_bar_text_color"
+                android:drawableTop="@drawable/bottom_bar_profile_bg"/>
+
+            <ImageView
+                android:id="@+id/profile_new_dot"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignRight="@id/tv_profile"
+                android:layout_alignTop="@id/tv_profile"
+                android:src="@drawable/red_dot"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
