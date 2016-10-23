@@ -13,10 +13,9 @@ import android.widget.Toast;
 
 import com.sina.weibo.sdk.openapi.models.Group;
 import com.wulinpeng.weicommunity.R;
+import com.wulinpeng.weicommunity.login.home.Contract;
 import com.wulinpeng.weicommunity.login.home.adapter.GroupAdapter;
-import com.wulinpeng.weicommunity.mvp.presenter.IGroupWindowPresenter;
-import com.wulinpeng.weicommunity.mvp.presenter.imp.GroupWindowPresenter;
-import com.wulinpeng.weicommunity.mvp.view.IGroupWindowView;
+import com.wulinpeng.weicommunity.login.home.presenter.GroupWindowPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +25,11 @@ import java.util.List;
  * @datetime: 16/10/8 下午9:59
  * @description:
  */
-public class GroupWindow extends PopupWindow implements IGroupWindowView {
+public class GroupWindow extends PopupWindow implements Contract.IGroupWindowView {
 
     private static GroupWindow mGroupWindow;
 
-    private IGroupWindowPresenter mPresenter;
+    private Contract.IGroupWindowPresenter mPresenter;
 
     private RecyclerView mRecyclerView;
 

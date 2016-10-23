@@ -33,4 +33,7 @@
     <color name="retweet_bg">#f7f7f7</color>
     <color name="img_type_color">#4F94CD</color>
     <color name="load_toast_bg">#f79f43</color>
+    <color name="post_bottom_bg">#f9f9f9</color>
+    <color name="post_origin_content_bg">#f2f2f2</color>
+    <color name="select_img_circle_normal">#939393</color>
 </resources>

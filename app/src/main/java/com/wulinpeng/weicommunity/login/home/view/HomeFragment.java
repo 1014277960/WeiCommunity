@@ -22,16 +22,15 @@ import com.sina.weibo.sdk.openapi.legacy.StatusesAPI;
 import com.sina.weibo.sdk.openapi.models.Status;
 import com.wulinpeng.weicommunity.Constans;
 import com.wulinpeng.weicommunity.R;
+import com.wulinpeng.weicommunity.login.home.Contract;
 import com.wulinpeng.weicommunity.login.home.adapter.GroupAdapter;
 import com.wulinpeng.weicommunity.login.home.adapter.StatusListAdapter;
 import com.wulinpeng.weicommunity.login.home.event.BarStatusEvent;
 import com.wulinpeng.weicommunity.login.home.event.GroupItemClickEvent;
 import com.wulinpeng.weicommunity.login.home.view.custom.GroupWindow;
 import com.wulinpeng.weicommunity.login.home.view.custom.LoadToast;
-import com.wulinpeng.weicommunity.mvp.entity.StatusList;
-import com.wulinpeng.weicommunity.mvp.presenter.IHomeFragmentPresenter;
-import com.wulinpeng.weicommunity.mvp.presenter.imp.HomeFragmentPresenter;
-import com.wulinpeng.weicommunity.mvp.view.IHomeFragmentView;
+import com.wulinpeng.weicommunity.model.entity.StatusList;
+import com.wulinpeng.weicommunity.login.home.presenter.HomeFragmentPresenter;
 import com.wulinpeng.weicommunity.util.AccessTokenKeeper;
 import com.wulinpeng.weicommunity.util.ScreenUtil;
 
@@ -44,15 +43,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.wulinpeng.weicommunity.mvp.model.IStatusListModel.TYPE_BILATERAL;
-import static com.wulinpeng.weicommunity.mvp.model.IStatusListModel.TYPE_FRIEND_CIRCLE;
+import static com.wulinpeng.weicommunity.model.interf.IStatusListModel.TYPE_BILATERAL;
+import static com.wulinpeng.weicommunity.model.interf.IStatusListModel.TYPE_FRIEND_CIRCLE;
 
 /**
  * @author wulinpeng
  * @datetime: 16/10/7 下午8:03
  * @description:
  */
-public class HomeFragment extends Fragment implements IHomeFragmentView {
+public class HomeFragment extends Fragment implements Contract.IHomeFragmentView {
 
     private View mView;
 
@@ -82,7 +81,7 @@ public class HomeFragment extends Fragment implements IHomeFragmentView {
 
     private GroupWindow mGroupWindow;
 
-    private IHomeFragmentPresenter mPresenter;
+    private Contract.IHomeFragmentPresenter mPresenter;
 
     private boolean isTopBarShow = true;
 
@@ -103,28 +102,9 @@ public class HomeFragment extends Fragment implements IHomeFragmentView {
 
         mPresenter = new HomeFragmentPresenter(this);
         mPresenter.updateUserName(getContext());
-        //testData();
         mPresenter.firstLoadStatus(getContext(), false);
 
         return mView;
-    }
-
-    private void testData() {
-        StatusesAPI api = new StatusesAPI(getContext(), Constans.APP_KEY, AccessTokenKeeper.getAccessToken(getContext()));
-        api.friendsTimeline(0, 0, 6, 1, false, 0, false, new RequestListener() {
-            @Override
-            public void onComplete(String s) {
-                StatusList list = StatusList.parse(s);
-                mData.clear();
-                mData.addAll(list.statusList);
-                mAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onWeiboException(WeiboException e) {
-
-            }
-        });
     }
 
     private void initGroupWindow() {

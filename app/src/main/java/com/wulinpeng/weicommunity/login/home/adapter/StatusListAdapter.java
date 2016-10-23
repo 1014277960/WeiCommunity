@@ -197,9 +197,11 @@ public class StatusListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             //content
             StatusFillUtil.fillStatusContent(mContext, viewHolder.statusContent, status.text);
             // bottom
-            StatusFillUtil.fillBottomBar(status, viewHolder.retweet, viewHolder.comment, viewHolder.like);
+            StatusFillUtil.fillBottomBar(mContext, status, viewHolder.retweet, viewHolder.comment, viewHolder.like);
             // images
             StatusFillUtil.fillImageList(mContext, status, viewHolder.imgs);
+            // bottom listener
+            StatusFillUtil.setBottomClickListener(mContext, status, viewHolder.bottomRetweetLayout, viewHolder.bottomCommentLayout, viewHolder.bottomLikeLayout);
 
         }
         if (type == TYPE_RETWEET) {
@@ -211,8 +213,10 @@ public class StatusListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             StatusFillUtil.fillStatusContent(mContext, viewHolder.statusContent, status.text);
             StatusFillUtil.fillRetweetContent(mContext, status, viewHolder.originContent);
             // bottom
-            StatusFillUtil.fillBottomBar(status, viewHolder.retweet, viewHolder.comment, viewHolder.like);
+            StatusFillUtil.fillBottomBar(mContext, status, viewHolder.retweet, viewHolder.comment, viewHolder.like);
             StatusFillUtil.fillImageList(mContext, status.retweeted_status, viewHolder.imgs);
+            // bottom listener
+            StatusFillUtil.setBottomClickListener(mContext, status, viewHolder.bottomRetweetLayout, viewHolder.bottomCommentLayout, viewHolder.bottomLikeLayout);
         }
     }
 

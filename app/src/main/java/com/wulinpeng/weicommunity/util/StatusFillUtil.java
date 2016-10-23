@@ -1,9 +1,11 @@
 package com.wulinpeng.weicommunity.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
@@ -14,6 +16,7 @@ import android.text.style.ClickableSpan;
 import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -23,6 +26,7 @@ import com.sina.weibo.sdk.openapi.models.User;
 import com.wulinpeng.weicommunity.R;
 import com.wulinpeng.weicommunity.login.home.adapter.ImageListAdapter;
 import com.wulinpeng.weicommunity.login.home.view.custom.CircleTransformation;
+import com.wulinpeng.weicommunity.repost.view.PostActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -217,7 +221,7 @@ public class StatusFillUtil {
         abstract public void onClick(View widget);
     }
 
-    public static void fillBottomBar(Status status, TextView retweet, TextView comment, TextView like) {
+    public static void fillBottomBar(final Context context, final Status status, TextView retweet, TextView comment, TextView like) {
         if (status.reposts_count != 0) {
             retweet.setText(status.reposts_count + "");
         } else {
@@ -258,5 +262,19 @@ public class StatusFillUtil {
             return size;
         }
         return 3;
+    }
+
+    public static void setBottomClickListener(final Context context, final Status status, LinearLayout retweet, LinearLayout comment, LinearLayout like) {
+        retweet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PostActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("status", status);
+                intent.putExtra("bundle", bundle);
+                intent.putExtra("type", PostActivity.TYPE_REPOST);
+                context.startActivity(intent);
+            }
+        });
     }
 }
