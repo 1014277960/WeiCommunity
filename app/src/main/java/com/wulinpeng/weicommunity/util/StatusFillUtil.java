@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
@@ -26,7 +25,7 @@ import com.sina.weibo.sdk.openapi.models.User;
 import com.wulinpeng.weicommunity.R;
 import com.wulinpeng.weicommunity.login.home.adapter.ImageListAdapter;
 import com.wulinpeng.weicommunity.login.home.view.custom.CircleTransformation;
-import com.wulinpeng.weicommunity.repost.view.PostActivity;
+import com.wulinpeng.weicommunity.post.view.PostActivity;
 import com.wulinpeng.weicommunity.weibodetail.view.WeiboDetailActivity;
 
 import java.text.ParseException;
@@ -44,7 +43,7 @@ import java.util.regex.Pattern;
  */
 public class StatusFillUtil {
 
-    public static void fillTopBar(Context context, Status status, ImageView profileImg, ImageView profileVefity, TextView profileName, TextView statusTime, TextView statusFrom, ImageView more) {
+    public static void fillTopBar(Context context, Status status, ImageView profileImg, ImageView profileVefity, TextView profileName, TextView statusTime, TextView statusFrom) {
         User user = status.user;
 
         Glide.with(context).load(user.profile_image_url).transform(new CircleTransformation(context)).diskCacheStrategy(DiskCacheStrategy.ALL).into(profileImg);

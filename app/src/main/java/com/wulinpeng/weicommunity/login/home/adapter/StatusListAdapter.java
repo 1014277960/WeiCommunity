@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,20 +12,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sina.weibo.sdk.openapi.models.Status;
-import com.sina.weibo.sdk.openapi.models.User;
 import com.wulinpeng.weicommunity.R;
 import com.wulinpeng.weicommunity.login.home.event.BarStatusEvent;
-import com.wulinpeng.weicommunity.repost.view.PostActivity;
 import com.wulinpeng.weicommunity.util.StatusFillUtil;
 import com.wulinpeng.weicommunity.weibodetail.view.WeiboDetailActivity;
 
 import org.greenrobot.eventbus.EventBus;
-import org.w3c.dom.Text;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 
 /**
  * @author wulinpeng
@@ -196,7 +193,7 @@ public class StatusListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             Status status = mData.get(getRealPosition(position));
             OriginViewHodler viewHolder = (OriginViewHodler)holder;
             // top bar
-            StatusFillUtil.fillTopBar(mContext, status, viewHolder.profileImg, viewHolder.profileVefity, viewHolder.profileName, viewHolder.statusTime, viewHolder.statusFrom, viewHolder.more);
+            StatusFillUtil.fillTopBar(mContext, status, viewHolder.profileImg, viewHolder.profileVefity, viewHolder.profileName, viewHolder.statusTime, viewHolder.statusFrom);
             //content
             StatusFillUtil.fillStatusContent(mContext, viewHolder.statusContent, status.text);
             // bottom
@@ -211,7 +208,7 @@ public class StatusListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             Status status = mData.get(getRealPosition(position));
             RetweetViewHodler viewHolder = (RetweetViewHodler)holder;
             // top bar
-            StatusFillUtil.fillTopBar(mContext, status, viewHolder.profileImg, viewHolder.profileVefity, viewHolder.profileName, viewHolder.statusTime, viewHolder.statusFrom, viewHolder.more);
+            StatusFillUtil.fillTopBar(mContext, status, viewHolder.profileImg, viewHolder.profileVefity, viewHolder.profileName, viewHolder.statusTime, viewHolder.statusFrom);
             //content
             StatusFillUtil.fillStatusContent(mContext, viewHolder.statusContent, status.text);
             StatusFillUtil.fillRetweetContent(mContext, status, viewHolder.originContent);

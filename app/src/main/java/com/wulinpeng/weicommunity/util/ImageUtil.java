@@ -13,8 +13,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 
-import com.wulinpeng.weicommunity.repost.entity.ImageFolder;
-import com.wulinpeng.weicommunity.repost.entity.ImageInfo;
+import com.wulinpeng.weicommunity.post.entity.ImageFolder;
+import com.wulinpeng.weicommunity.post.entity.ImageInfo;
 
 import java.io.File;
 import java.io.FileNotFoundException;

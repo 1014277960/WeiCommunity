@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp">
 
-    <com.wulinpeng.weicommunity.repost.view.custom.ScaleImageView
+    <com.wulinpeng.weicommunity.post.view.custom.ScaleImageView
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

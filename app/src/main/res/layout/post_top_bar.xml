@@ -47,7 +47,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
         android:layout_centerVertical="true"
-        android:clickable="true"
+        android:clickable="false"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
         android:paddingLeft="6dp"

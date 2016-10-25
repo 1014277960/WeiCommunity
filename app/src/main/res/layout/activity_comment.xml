@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/post_top_bar" />
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="写评论..."
+        android:gravity="left|top"
+        android:textSize="15sp"
+        android:layout_margin="5dp"
+        android:background="@null"/>
+
+    <include layout="@layout/post_bottom_bar" />
+
+</LinearLayout>

@@ -30,9 +30,10 @@
         <activity android:name=".unlogin.view.UnloginActivity" />
         <activity android:name=".login.MainActivity" />
         <activity android:name=".login.home.view.ImageListActivity" />
-        <activity android:name=".repost.view.PostActivity" />
-        <activity android:name=".repost.view.ImgSelectActivity" />
+        <activity android:name=".post.view.PostActivity" />
+        <activity android:name=".post.view.ImgSelectActivity" />
         <activity android:name=".weibodetail.view.WeiboDetailActivity" />
+        <activity android:name=".post.view.CommentActivity" />
     </application>
 
 </manifest>

@@ -7,7 +7,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,7 +17,8 @@ import com.sina.weibo.sdk.openapi.models.Comment;
 import com.sina.weibo.sdk.openapi.models.Status;
 import com.wulinpeng.weicommunity.R;
 import com.wulinpeng.weicommunity.model.entity.Repost;
-import com.wulinpeng.weicommunity.repost.view.PostActivity;
+import com.wulinpeng.weicommunity.post.view.CommentActivity;
+import com.wulinpeng.weicommunity.post.view.PostActivity;
 import com.wulinpeng.weicommunity.weibodetail.Contract;
 import com.wulinpeng.weicommunity.weibodetail.adapter.WeiboDetailAdapter;
 import com.wulinpeng.weicommunity.weibodetail.event.RepostOrCommentEvent;
@@ -149,8 +149,21 @@ public class WeiboDetailActivity extends AppCompatActivity implements Contract.I
         mComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(WeiboDetailActivity.this, CommentActivity.class);
+                intent.putExtra("status", mStatus);
+                startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mType == TYPE_COMMENT) {
+            mPresenter.updateComment(this, mStatus);
+        } else {
+            mPresenter.updateRepost(this, mStatus);
+        }
     }
 
     @Subscribe
