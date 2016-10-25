@@ -27,6 +27,7 @@ import com.wulinpeng.weicommunity.R;
 import com.wulinpeng.weicommunity.login.home.adapter.ImageListAdapter;
 import com.wulinpeng.weicommunity.login.home.view.custom.CircleTransformation;
 import com.wulinpeng.weicommunity.repost.view.PostActivity;
+import com.wulinpeng.weicommunity.weibodetail.view.WeiboDetailActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -43,7 +44,7 @@ import java.util.regex.Pattern;
  */
 public class StatusFillUtil {
 
-    public static void fillTopBar(Context context, Status status, ImageView profileImg, ImageView profileVefity, TextView profileName, TextView statusTime, TextView statusFrom) {
+    public static void fillTopBar(Context context, Status status, ImageView profileImg, ImageView profileVefity, TextView profileName, TextView statusTime, TextView statusFrom, ImageView more) {
         User user = status.user;
 
         Glide.with(context).load(user.profile_image_url).transform(new CircleTransformation(context)).diskCacheStrategy(DiskCacheStrategy.ALL).into(profileImg);
@@ -60,6 +61,8 @@ public class StatusFillUtil {
         profileName.setText(user.name);
         statusTime.setText(buildTime(status.created_at));
         statusFrom.setText(getFromText(status.source));
+
+
     }
 
     /**
@@ -81,7 +84,7 @@ public class StatusFillUtil {
      * @param time
      * @return
      */
-    private static String buildTime(String time) {
+    public static String buildTime(String time) {
         SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.US);
         try {
             // 格式化返回的String数据为date
@@ -269,12 +272,25 @@ public class StatusFillUtil {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, PostActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("status", status);
-                intent.putExtra("bundle", bundle);
                 intent.putExtra("type", PostActivity.TYPE_REPOST);
+                intent.putExtra("status", status);
                 context.startActivity(intent);
             }
         });
+        comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, WeiboDetailActivity.class);
+                intent.putExtra("status", status);
+                context.startActivity(intent);
+            }
+        });
+    }
+
+    public static void fillCommentOrRepost(Context context, User user, String time, String content, ImageView imageView, TextView name, TextView timeText, TextView contentText) {
+        Glide.with(context).load(user.profile_image_url).transform(new CircleTransformation(context)).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageView);
+        name.setText(user.name);
+        timeText.setText(buildTime(time));
+        fillStatusContent(context, contentText, content);
     }
 }

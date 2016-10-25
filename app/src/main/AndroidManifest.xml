@@ -32,6 +32,7 @@
         <activity android:name=".login.home.view.ImageListActivity" />
         <activity android:name=".repost.view.PostActivity" />
         <activity android:name=".repost.view.ImgSelectActivity" />
+        <activity android:name=".weibodetail.view.WeiboDetailActivity" />
     </application>
 
 </manifest>

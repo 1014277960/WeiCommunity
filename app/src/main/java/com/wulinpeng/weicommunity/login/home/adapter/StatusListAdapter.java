@@ -1,6 +1,7 @@
 package com.wulinpeng.weicommunity.login.home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,7 +16,9 @@ import com.sina.weibo.sdk.openapi.models.Status;
 import com.sina.weibo.sdk.openapi.models.User;
 import com.wulinpeng.weicommunity.R;
 import com.wulinpeng.weicommunity.login.home.event.BarStatusEvent;
+import com.wulinpeng.weicommunity.repost.view.PostActivity;
 import com.wulinpeng.weicommunity.util.StatusFillUtil;
+import com.wulinpeng.weicommunity.weibodetail.view.WeiboDetailActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.w3c.dom.Text;
@@ -193,7 +196,7 @@ public class StatusListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             Status status = mData.get(getRealPosition(position));
             OriginViewHodler viewHolder = (OriginViewHodler)holder;
             // top bar
-            StatusFillUtil.fillTopBar(mContext, status, viewHolder.profileImg, viewHolder.profileVefity, viewHolder.profileName, viewHolder.statusTime, viewHolder.statusFrom);
+            StatusFillUtil.fillTopBar(mContext, status, viewHolder.profileImg, viewHolder.profileVefity, viewHolder.profileName, viewHolder.statusTime, viewHolder.statusFrom, viewHolder.more);
             //content
             StatusFillUtil.fillStatusContent(mContext, viewHolder.statusContent, status.text);
             // bottom
@@ -208,7 +211,7 @@ public class StatusListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             Status status = mData.get(getRealPosition(position));
             RetweetViewHodler viewHolder = (RetweetViewHodler)holder;
             // top bar
-            StatusFillUtil.fillTopBar(mContext, status, viewHolder.profileImg, viewHolder.profileVefity, viewHolder.profileName, viewHolder.statusTime, viewHolder.statusFrom);
+            StatusFillUtil.fillTopBar(mContext, status, viewHolder.profileImg, viewHolder.profileVefity, viewHolder.profileName, viewHolder.statusTime, viewHolder.statusFrom, viewHolder.more);
             //content
             StatusFillUtil.fillStatusContent(mContext, viewHolder.statusContent, status.text);
             StatusFillUtil.fillRetweetContent(mContext, status, viewHolder.originContent);
@@ -282,6 +285,15 @@ public class StatusListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         public OriginViewHodler(final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            originLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, WeiboDetailActivity.class);
+                    intent.putExtra("status", mData.get(getRealPosition(getLayoutPosition())));
+                    mContext.startActivity(intent);
+                }
+            });
         }
     }
 
@@ -327,6 +339,23 @@ public class StatusListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         public RetweetViewHodler(final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            originLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, WeiboDetailActivity.class);
+                    intent.putExtra("status", mData.get(getRealPosition(getLayoutPosition())));
+                    mContext.startActivity(intent);
+                }
+            });
+            retweetLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, WeiboDetailActivity.class);
+                    intent.putExtra("status", mData.get(getRealPosition(getLayoutPosition())).retweeted_status);
+                    mContext.startActivity(intent);
+                }
+            });
         }
     }
 

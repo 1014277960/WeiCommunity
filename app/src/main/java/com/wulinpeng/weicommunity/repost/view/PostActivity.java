@@ -98,7 +98,7 @@ public class PostActivity extends AppCompatActivity {
         mType = getIntent().getStringExtra("type");
         mTypeText.setText(mType);
         if (mType.equals(TYPE_REPOST)) {
-            mStatus = (Status) getIntent().getBundleExtra("bundle").getSerializable("status");
+            mStatus = (Status) getIntent().getSerializableExtra("status");
         }
 
         refreshUserName();

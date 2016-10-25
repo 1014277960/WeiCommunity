@@ -128,7 +128,6 @@ public class StatusListModel implements IStatusListModel {
         }
         if (list != null && list.statusList != null) {
             mStatuses = list.statusList;
-            Log.d("Debug", "not null");
         }
         onStatusFinishListener.onDataFinish(mStatuses, null);
         maxId = SharedUtil.getLong(context, "max_id", 0);

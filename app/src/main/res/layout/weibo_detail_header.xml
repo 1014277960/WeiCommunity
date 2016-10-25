@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include layout="@layout/status_topbar" />
+
+    <TextView
+        android:id="@+id/status_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/status_text"
+        android:text="#知政#【财政部谈跨境电商新政：不会给消费者带来太大负担】财政部关税司有关负责人坦承，新政客观上会提高消费者总体税负水平。但其指出，在税率设置上暂给予一定优惠，具体而言有升有降。新政有利于电商化解部分成本，对大众消费品价格总体影响有限，不会给消费者带来太大负担。http://t.cn/RqXsr16"
+        android:textSize="16sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/status_imgs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/retweetStatus_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/retweetstatus_bg"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/retweet_contentWithName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp"
+            android:lineSpacingExtra="3sp"
+            android:textColor="@color/status_text"
+            android:text="\@飞常准 :  【网曝：首都机场有人带枪上飞机】 据“停机坪”公众号1月4日发布的消息，有网友报料称，有乘客把看似是玩具或道具“手枪”带上了飞机。并在机舱里拿着枪摆各种姿势合影。事件发生的地点在北京首都机场的一架飞机上。"
+            android:textSize="16sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/retweet_imageList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@android:color/white"
+        android:layout_marginBottom="2dp">
+
+        <FrameLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/repost"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="转发"
+                android:clickable="true"/>
+
+            <View
+                android:id="@+id/repost_line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/register_origin"
+                android:layout_gravity="bottom"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/comment"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="评论"
+                android:clickable="true"/>
+
+            <View
+                android:id="@+id/comment_line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/register_origin"
+                android:layout_gravity="bottom"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="赞"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical" />
+        
+    </LinearLayout>
+
+</LinearLayout>
